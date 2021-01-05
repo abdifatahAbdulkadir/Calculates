@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Calculates</string>
+
+    <string-array name="Weight">
+        <item>Kilograms</item>
+        <item>Pounds</item>
+    </string-array>
+
+    <string-array name="Height">
+        <item>Centimeters</item>
+        <item>Feet</item>
+    </string-array>
+</resources>
