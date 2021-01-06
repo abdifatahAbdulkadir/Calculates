@@ -19,6 +19,8 @@ import com.example.calculates.Dialogs.BMIResultDialog;
 
 import java.util.Objects;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 public class BMIActivity extends AppCompatActivity {
     private Spinner weight_sp;
     private Spinner height_sp;
@@ -30,7 +32,7 @@ public class BMIActivity extends AppCompatActivity {
 
 
     private Button seven, eight, nine, four, five, six, three, two, one, zero, dot;
-    private Button ac, back_space,info_button;
+    private Button ac, back_space, info_button;
 
     private String weighIsSelected;
     private String heightIsSelected;
@@ -336,8 +338,8 @@ public class BMIActivity extends AppCompatActivity {
             float results = BMICalculation(Float.parseFloat(weightStr), Float.parseFloat(heightStr));
             result_tv.setText(String.format("%.1f", results));
             System.out.println(results);
-        }else if (!weightStr.equals("") && !heightStr.equals("") && weighIsSelected.equals("Pounds") && heightIsSelected.equals("Feet")){
-            float poundResult = feet(Float.parseFloat(weightStr),Float.parseFloat(heightStr));
+        } else if (!weightStr.equals("") && !heightStr.equals("") && weighIsSelected.equals("Pounds") && heightIsSelected.equals("Feet")) {
+            float poundResult = feet(Float.parseFloat(weightStr), Float.parseFloat(heightStr));
             result_tv.setText(String.format("%.1f", poundResult));
             System.out.println(poundResult);
         }
@@ -359,14 +361,14 @@ public class BMIActivity extends AppCompatActivity {
     }
 
     //return pound and feet result
-    public float feet(float weightPound, float heightFeet ){
-        float result = ((weightPound/heightFeet)/heightFeet) * 703;
+    public float feet(float weightPound, float heightFeet) {
+        float result = ((weightPound / heightFeet) / heightFeet) * 703;
         returnResultOnTextView(result);
         return result;
     }
 
 
-    public float returnResultOnTextView(float result){
+    public float returnResultOnTextView(float result) {
         if (result < 16) {
             weight_type_tv.setTextColor(Color.rgb(93, 173, 226));
             weight_type_tv.setText("Extreme Underweight");
@@ -386,7 +388,7 @@ public class BMIActivity extends AppCompatActivity {
     //Delete the elements one by one on textView
     public void backSpace(View view) {
 
-        if (!weight_tv.getText().equals("") ) {
+        if (!weight_tv.getText().equals("")) {
             String weightStr = weight_tv.getText().toString();
             if (weightStr.length() > 0) {
                 weightStr = weightStr.substring(0, weightStr.length() - 1);
@@ -396,7 +398,7 @@ public class BMIActivity extends AppCompatActivity {
 
         if (!height_tv.getText().equals("")) {
             String heightStr = height_tv.getText().toString();
-            if ( heightStr.length() > 0) {
+            if (heightStr.length() > 0) {
                 heightStr = heightStr.substring(0, heightStr.length() - 1);
                 height_tv.setText(heightStr);
             }
@@ -410,5 +412,11 @@ public class BMIActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.bmi_result_dialog);
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        customType(BMIActivity.this, "up-to-bottom");
     }
 }

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 public class MainActivity extends AppCompatActivity {
     ImageView bmi;
     @Override
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,BMIActivity.class));
+                customType(MainActivity.this,"bottom-to-up");
             }
         });
 
