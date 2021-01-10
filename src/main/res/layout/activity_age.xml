@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context=".AgeActivity"
+    tools:deviceIds="wear">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif"
+        android:text="Date of birth"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="346dp"
+        android:fontFamily="sans-serif"
+        android:text="Today"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/data_picker_button"
+        android:layout_width="187dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="12dp"
+        android:text="2021-01-07"
+        style="@android:style/Widget.Spinner.DropDown"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_drop_down_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/data_picker_button2"
+        android:layout_width="187dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="68dp"
+        android:text="2021-01-07"
+        style="@android:style/Widget.Spinner.DropDown"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/ic_drop_down_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.574">
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="155dp"
+            android:layout_marginStart="174dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/cardview_dark_background"/>
+
+        <View
+            android:layout_width="330dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="163dp"
+            android:background="@color/cardview_dark_background"/>
+
+        <!--upper left side of the view-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:layout_margin="15dp"/>
+
+        <TextView
+            android:id="@+id/current_year_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:textColor="@color/orangeAccent"
+            android:textStyle="normal"
+            android:textSize="48sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="53dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Years"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="83dp"/>
+
+        <TextView
+            android:id="@+id/current_month_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Months"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="124dp"/>
+
+        <TextView
+            android:id="@+id/current_days_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Days"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="124dp"/>
+
+        <!--upper right side of the view-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next birthday"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:textColor="@color/orangeAccent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="218dp"/>
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:src="@drawable/birthday_cake"
+            android:layout_marginStart="240dp"
+            android:layout_marginTop="48dp"/>
+
+        <TextView
+            android:id="@+id/coming_week_day_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monday"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_marginTop="99dp"
+            android:layout_marginStart="235dp"/>
+
+        <TextView
+            android:id="@+id/coming_month_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Months"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:layout_marginStart="210dp"
+            android:layout_marginTop="124dp"/>
+
+        <TextView
+            android:id="@+id/coming_day_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Days"
+            android:textStyle="normal"
+            android:textSize="18sp"
+            android:layout_marginStart="275dp"
+            android:layout_marginTop="124dp"/>
+
+        <!--lower side of the view-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Summery"
+            android:textStyle="normal"
+            android:textSize="20sp"
+            android:textColor="@color/orangeAccent"
+            android:layout_marginTop="185dp"
+            android:layout_marginStart="134dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Years"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="214dp"/>
+
+        <TextView
+            android:id="@+id/total_year_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:textStyle="normal"
+            android:textSize="20sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="240dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Days"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="273dp"/>
+
+        <TextView
+            android:id="@+id/total_days_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="296dp"/>
+
+        <!--down middle section-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Months"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:layout_marginStart="155dp"
+            android:layout_marginTop="219dp"/>
+
+        <TextView
+            android:id="@+id/total_month_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:textStyle="normal"
+            android:textSize="20sp"
+            android:layout_marginStart="165dp"
+            android:layout_marginTop="240dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hours"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:layout_marginStart="155dp"
+            android:layout_marginTop="273dp"/>
+
+        <TextView
+            android:id="@+id/total_hour_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0000"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_marginStart="155dp"
+            android:layout_marginTop="296dp"/>
+
+        <!--down left section-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Week"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:layout_marginStart="275dp"
+            android:layout_marginTop="219dp"/>
+
+        <TextView
+            android:id="@+id/total_week_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="000"
+            android:textStyle="normal"
+            android:textSize="20sp"
+            android:layout_marginStart="275dp"
+            android:layout_marginTop="242dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minutes"
+            android:textStyle="normal"
+            android:textSize="14sp"
+            android:layout_marginStart="270dp"
+            android:layout_marginTop="273dp"/>
+
+        <TextView
+            android:id="@+id/total_minutes_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="000000"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:layout_marginStart="270dp"
+            android:layout_marginTop="296dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/s_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="60dp"
+        android:text="Click"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

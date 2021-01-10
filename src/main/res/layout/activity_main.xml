@@ -20,13 +20,27 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="25dp"
-                android:contentDescription="BMI"
                 android:background="@drawable/bmi" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BMI"
+                android:textSize="18sp"
+                android:layout_marginTop="90dp"
+                android:layout_marginStart="-68dp"/>
+
+            <ImageView
+                android:id="@+id/age_iv"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="25dp"
+                android:background="@drawable/ic_birth_cake" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
                 android:textSize="18sp"
                 android:layout_marginTop="90dp"
                 android:layout_marginStart="-68dp"/>
