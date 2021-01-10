@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;;
 import android.widget.AdapterView;
@@ -22,6 +23,7 @@ import java.util.Objects;
 import static maes.tech.intentanim.CustomIntent.customType;
 
 public class BMIActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     private Spinner weight_sp;
     private Spinner height_sp;
     private TextView weight_tv;
@@ -58,7 +60,7 @@ public class BMIActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 weighIsSelected = parent.getItemAtPosition(position).toString();
                 itemList(weighIsSelected);
-                System.out.println(weighIsSelected);
+                Log.d(TAG, "onItemSelected: " + weighIsSelected);
             }
 
             @Override
@@ -71,7 +73,7 @@ public class BMIActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 heightIsSelected = parent.getItemAtPosition(position).toString();
                 itemList(heightIsSelected);
-                System.out.println(heightIsSelected);
+                Log.d(TAG, "onItemSelected: " + heightIsSelected);
             }
 
             @Override
@@ -84,7 +86,7 @@ public class BMIActivity extends AppCompatActivity {
         keypad();
     }
 
-    public String itemList(String text) {
+    public void itemList(String text) {
         switch (text) {
             case "Kilograms":
                 kg_lbs_tv.setText(text);
@@ -105,13 +107,8 @@ public class BMIActivity extends AppCompatActivity {
                 cm_m_tv.setText(text);
                 break;
             default:
-                System.out.println("Not available");
+                Log.d(TAG, "itemList: " + text);
                 break;
-        }
-        if (kg_lbs_tv.isSelected() || cm_m_tv.isSelected()) {
-            return "selected";
-        } else {
-            return "Not Selected";
         }
     }
 
@@ -337,11 +334,11 @@ public class BMIActivity extends AppCompatActivity {
         if (!weightStr.equals("") && !heightStr.equals("") && weighIsSelected.equals("Kilograms") && heightIsSelected.equals("Centimeters")) {
             float results = BMICalculation(Float.parseFloat(weightStr), Float.parseFloat(heightStr));
             result_tv.setText(String.format("%.1f", results));
-            System.out.println(results);
+            Log.d(TAG, "calc: " + results);
         } else if (!weightStr.equals("") && !heightStr.equals("") && weighIsSelected.equals("Pounds") && heightIsSelected.equals("Feet")) {
             float poundResult = feet(Float.parseFloat(weightStr), Float.parseFloat(heightStr));
             result_tv.setText(String.format("%.1f", poundResult));
-            System.out.println(poundResult);
+            Log.d(TAG, "calc: " + poundResult);
         }
     }
 

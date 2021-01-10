@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import static maes.tech.intentanim.CustomIntent.customType;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView bmi;
+    ImageView bmi, age;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +25,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        age.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,AgeActivity.class));
+                customType(MainActivity.this,"bottom-to-up");
+            }
+        });
+
     }
 
     public void findViewByIds(){
         bmi = findViewById(R.id.bmi);
+        age = findViewById(R.id.age_iv);
     }
 }
