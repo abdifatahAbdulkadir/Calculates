@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class DiscountActivity extends AppCompatActivity {
 
-    private TextView original_price_tv,discount_percent_tv,final_price_tv;
+    private TextView original_price_tv, discount_percent_tv, final_price_tv;
     private Button disco_seven, disco_eight, disco_nine, disco_four, disco_five, disco_six, disco_three, disco_two, disco_one, disco_zero, disco_dot;
     private Button disco_ac, disco_back_space;
 
@@ -21,12 +21,6 @@ public class DiscountActivity extends AppCompatActivity {
 
 
         keypad();
-    }
-
-    public void disc_backSpace(View view) {
-    }
-
-    public void disco_calc(View view) {
     }
 
     public void findViewByIds() {
@@ -314,8 +308,6 @@ public class DiscountActivity extends AppCompatActivity {
                         final_price_tv.setText(final_price_tv.getText() + "0");
                     }
                 });
-
-
 
 
             }
