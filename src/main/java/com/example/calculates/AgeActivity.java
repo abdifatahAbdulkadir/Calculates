@@ -12,14 +12,29 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.Days;
+import org.joda.time.Hours;
+import org.joda.time.LocalDate;
+import org.joda.time.Minutes;
+import org.joda.time.Months;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;
+import org.joda.time.Weeks;
+import org.joda.time.Years;
+import org.joda.time.format.PeriodFormatter;
+import org.joda.time.format.PeriodFormatterBuilder;
+
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.TimeZone;
 
 public class AgeActivity extends AppCompatActivity {
     private static final String TAG = "AgeActivity";
@@ -30,7 +45,7 @@ public class AgeActivity extends AppCompatActivity {
     private TextView total_month_tv, total_hour_tv;
     private TextView total_week_tv, total_minutes_tv;
 
-    private Button s_bt,data_picker_button,data_picker_button2;
+    private Button s_bt, data_picker_button, data_picker_button2;
 
     private DatePickerDialog.OnDateSetListener date_picker_listener1;
     private DatePickerDialog.OnDateSetListener date_picker_listener2;
@@ -42,9 +57,6 @@ public class AgeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_age);
         findViewByIds();
-        s_bt = findViewById(R.id.s_bt);
-        data_picker_button = findViewById(R.id.data_picker_button);
-        data_picker_button2 = findViewById(R.id.data_picker_button2);
 
 
         Calendar calendar = Calendar.getInstance();
@@ -54,7 +66,7 @@ public class AgeActivity extends AppCompatActivity {
 
         sdf = new SimpleDateFormat("dd/MM/yyyy");
         String data = sdf.format(Calendar.getInstance().getTime());
-        data_picker_button2.setText(data);
+        data_picker_button2.setText(data); //? Display today's date
 
         data_picker_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,9 +82,10 @@ public class AgeActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month += 1;
-                String date = dayOfMonth + "/" + month + "/" + year;
+                String date = addZero(dayOfMonth) + "/" + addZero(month) + "/" + year;
                 data_picker_button.setText(date);
                 getCurrentCalculation();
+                //currentAge();
             }
 
         };
@@ -92,9 +105,10 @@ public class AgeActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 month += 1;
-                String date = dayOfMonth + "/" + month + "/" + year;
+                String date = addZero(dayOfMonth) + "/" + addZero(month) + "/" + year;
                 data_picker_button2.setText(date);
                 getCurrentCalculation();
+                //currentAge();
             }
         };
     }
@@ -118,6 +132,9 @@ public class AgeActivity extends AppCompatActivity {
         total_week_tv = findViewById(R.id.total_week_tv);
         total_minutes_tv = findViewById(R.id.total_minutes_tv);
 
+        data_picker_button = findViewById(R.id.data_picker_button);
+        data_picker_button2 = findViewById(R.id.data_picker_button2);
+
     }
 
     // Add zero before <-- if date/month is less than 10
@@ -125,35 +142,87 @@ public class AgeActivity extends AppCompatActivity {
         return dateOrMonth < 10 ? "0" + dateOrMonth : dateOrMonth;
     }
 
-    public void getCurrentCalculation(){
+    public void getCurrentCalculation() {
         String bDay = data_picker_button.getText().toString();
-        String tDay   = data_picker_button2.getText().toString();
+        String tDay = data_picker_button2.getText().toString();
 
         try {
 
             Date d1 = sdf.parse(bDay);
             Date d2 = sdf.parse(tDay);
 
-            long firstDate = d1.getTime();
-            long secondDate = d2.getTime();
 
-            if (firstDate <= secondDate) {
-                Period period = new Period(firstDate, secondDate, PeriodType.yearMonthDay());
+            long firstDate = Objects.requireNonNull(d1).getTime();
+            long secondDate = Objects.requireNonNull(d2).getTime();
 
-                int years = period.getYears();
-                System.out.println("------> " + years);
-                int months = period.getMonths();
-                int days = period.getDays();
+            DateTime startDate = new DateTime(d1.getTime());
+            DateTime endDate = new DateTime(d2.getTime());
 
-                Log.d(TAG, "getCurrentCalculation: " + years + "/" + months + "/" + days);
-                current_year_tv.setText(String.valueOf(years));
-                current_month_tv.setText(months + " Months");
-                current_days_tv.setText(days + " Days");
-            }else{
-                System.out.println("Birthday should not be larger than today");
-            }
-        }catch (ParseException e){
+            //if birthday is more than today's date return
+
+
+            Period period = new Period(firstDate, secondDate, PeriodType.yearMonthDay());
+            int years = period.getYears();
+            int months = period.getMonths();
+            int days = period.getDays();
+
+            Log.d(TAG, "getCurrentCalculation: " + years + "/" + months + "/" + days);
+            current_year_tv.setText(String.valueOf(years));
+            current_month_tv.setText(months + " Months");
+            current_days_tv.setText(days + " Days");
+
+
+            //Summery between two dates
+            getHours(startDate, endDate);
+            getMinutes(startDate, endDate);
+            getMonths(startDate, endDate);
+            getDays(startDate, endDate);
+            getWeeks(startDate, endDate);
+            getYears(startDate, endDate);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        nextBirthday();
+    }
+
+    public void nextBirthday() {
+
+    }
+
+    public void getHours(DateTime startDate, DateTime endDate) {
+        Hours hours = Hours.hoursBetween(startDate, endDate);
+        int hour = hours.getHours();
+        total_hour_tv.setText(String.valueOf(hour));
+    }
+
+    public void getMonths(DateTime startDate, DateTime endDate) {
+        Months m = Months.monthsBetween(startDate, endDate);
+        int mon = m.getMonths();
+        total_month_tv.setText(String.valueOf(mon));
+    }
+
+    public void getMinutes(DateTime startDate, DateTime endDate) {
+        Minutes minutes = Minutes.minutesBetween(startDate, endDate);
+        int min = minutes.getMinutes();
+        total_minutes_tv.setText(String.valueOf(min));
+    }
+
+    public void getDays(DateTime startDate, DateTime endDate) {
+        Days days = Days.daysBetween(startDate, endDate);
+        int d = days.getDays();
+        total_days_tv.setText(String.valueOf(d));
+    }
+
+    public void getWeeks(DateTime startDate, DateTime endDate) {
+        Weeks weeks = Weeks.weeksBetween(startDate, endDate);
+        int w = weeks.getWeeks();
+        total_week_tv.setText(String.valueOf(w));
+    }
+
+    public void getYears(DateTime startDate, DateTime endDate) {
+        Years years = Years.yearsBetween(startDate, endDate);
+        int y = years.getYears();
+        total_year_tv.setText(String.valueOf(y));
     }
 }
