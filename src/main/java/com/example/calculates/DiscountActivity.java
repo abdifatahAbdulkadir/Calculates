@@ -127,14 +127,6 @@ public class DiscountActivity extends AppCompatActivity {
                     }
                 });
 
-                disco_ac.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        original_price_tv.setText("");
-                    }
-                });
-
-
             }
         });
 
@@ -218,14 +210,6 @@ public class DiscountActivity extends AppCompatActivity {
                     }
                 });
 
-                disco_ac.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        discount_percent_tv.setText("");
-                    }
-                });
-
-
             }
         });
 
@@ -308,7 +292,6 @@ public class DiscountActivity extends AppCompatActivity {
                         final_price_tv.setText(final_price_tv.getText() + "0");
                     }
                 });
-
 
             }
         });
