@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BMIActivity">
+    tools:context=".DiscountActivity">
 
     <RelativeLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,42 +19,55 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="183dp"
-            android:layout_marginTop="6dp"
-            android:text="BMI"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/weight_sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="21dp" />
+            android:text="Original price"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"/>
 
         <TextView
-            android:id="@+id/weight_tv"
-            android:layout_width="wrap_content"
+            android:id="@+id/original_price__tv"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="343dp"
-            android:layout_marginTop="23dp"
-            android:maxLength="4"
+            android:hint="200"
+            android:maxLines="1"
+            android:layout_marginStart="182dp"
+            android:layout_marginTop="5dp"
+            android:gravity="right"
             android:fontFamily="sans-serif"
-            android:hint="0.0"
             android:textSize="18sp"
             android:textStyle="bold"/>
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Discount(% off)"
+           android:textSize="20sp"
+           android:textColor="@color/black"
+           android:layout_marginTop="5dp"
+           android:layout_marginStart="20dp"/>
         <TextView
-            android:id="@+id/kg_lbs_tv"
-            android:layout_width="wrap_content"
+            android:id="@+id/discount_percent_tv"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="286dp"
-            android:layout_marginTop="44dp"
-            android:hint="Kilograms"
+            android:hint="10%"
+            android:maxLines="1"
+            android:layout_marginStart="182dp"
+            android:layout_marginTop="5dp"
+            android:maxLength="3"
             android:gravity="right"
+            android:fontFamily="sans-serif"
             android:textSize="18sp"
             android:textStyle="bold"/>
     </RelativeLayout>
@@ -62,87 +76,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="105dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Spinner
-            android:id="@+id/height_sp"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:layout_marginStart="37dp"/>
+            android:text="Final price"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"/>
         <TextView
-            android:id="@+id/height_tv"
-            android:layout_width="wrap_content"
+            android:id="@+id/final_price__tv"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:hint="0.0"
-            android:layout_marginStart="343dp"
-            android:layout_marginTop="23dp"
-            android:maxLength="3"
+            android:maxLines="1"
+            android:textDirection="rtl"
+            android:layout_marginStart="182dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="sans-serif"
             android:textSize="18sp"
             android:textStyle="bold"/>
+
+
         <TextView
-            android:id="@+id/cm_m_tv"
+            android:id="@+id/discount_saved"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:hint="You saved"
             android:textSize="18sp"
-            android:hint="Centimeters"
-            android:gravity="right"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="44dp"
-            android:textStyle="bold"/>
+            android:layout_marginStart="165dp"
+            android:layout_marginTop="66dp"
+            android:layout_marginBottom="5dp"/>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/weight_type_tv"
-        android:layout_width="184dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="168dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center_vertical|start"
-        android:textColor="#FF9800"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/info_button"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="172dp"
-        android:background="@drawable/ic_info"
-        android:onClick="infoProvider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.896"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/result_tv"
-        android:layout_width="114dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="168dp"
-        android:fontFamily="sans-serif"
-        android:gravity="end|center"
-        android:textColor="#FF9800"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <View
-        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="400dp"
         android:background="#333135"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -150,7 +126,6 @@
 
     <!--Keypad layout-->
     <RelativeLayout
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,135 +133,134 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/seven"
+            android:id="@+id/disco_seven"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
+            android:textStyle="bold"
             android:layout_marginStart="10dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:fontFamily="sans-serif"
-            android:text="7"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="7" />
 
         <Button
-            android:id="@+id/eight"
+            android:id="@+id/disco_eight"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
+            android:textStyle="bold"
             android:layout_marginStart="110dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:fontFamily="sans-serif"
-            android:text="8"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="8" />
 
         <Button
-            android:id="@+id/nine"
+            android:id="@+id/disco_nine"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_marginStart="210dp"
             android:background="?android:attr/selectableItemBackground"
             android:fontFamily="sans-serif"
-            android:text="9"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginStart="210dp"
+            android:text="9" />
 
         <Button
-            android:id="@+id/ac"
+            android:id="@+id/disco_ac"
             android:layout_width="90dp"
             android:layout_height="135dp"
-            android:layout_marginStart="310dp"
             android:background="?android:attr/selectableItemBackground"
             android:fontFamily="sans-serif"
-            android:text="AC"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginStart="310dp"
+            android:text="AC" />
 
         <!-- Second row 4 5 6-->
         <Button
-            android:id="@+id/four"
+            android:id="@+id/disco_four"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="98dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="98dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:fontFamily="sans-serif"
-            android:text="4"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="4" />
 
         <Button
-            android:id="@+id/five"
+            android:id="@+id/disco_five"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="98dp"
             android:layout_marginStart="110dp"
-            android:layout_marginTop="98dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:fontFamily="sans-serif"
-            android:text="5"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="5" />
 
         <Button
-            android:id="@+id/six"
+            android:id="@+id/disco_six"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_marginStart="210dp"
-            android:layout_marginTop="98dp"
             android:background="?android:attr/selectableItemBackground"
             android:fontFamily="sans-serif"
-            android:text="6"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="98dp"
+            android:layout_marginStart="210dp"
+            android:text="6" />
 
         <!-- Second row 3 2 1 0 .-->
         <Button
-            android:id="@+id/three"
+            android:id="@+id/disco_three"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="194dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="194dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:fontFamily="sans-serif"
-            android:text="3"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="3" />
 
         <Button
-            android:id="@+id/two"
+            android:id="@+id/disco_two"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="194dp"
             android:layout_marginStart="110dp"
-            android:layout_marginTop="194dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:fontFamily="sans-serif"
-            android:text="2"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="2" />
 
         <Button
-            android:id="@+id/one"
+            android:id="@+id/disco_one"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_marginStart="210dp"
-            android:layout_marginTop="194dp"
             android:background="?android:attr/selectableItemBackground"
             android:fontFamily="sans-serif"
-            android:text="1"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="194dp"
+            android:layout_marginStart="210dp"
+            android:text="1" />
 
         <Button
-            android:id="@+id/back_space"
+            android:id="@+id/disco_back_space"
             android:layout_width="90dp"
             android:layout_height="149dp"
-            android:layout_marginStart="310dp"
-            android:layout_marginTop="138dp"
             android:background="?android:attr/selectableItemBackground"
-            android:onClick="backSpace" />
+            android:layout_marginStart="310dp"
+            android:layout_marginTop="138dp" />
 
 
         <ImageView
-            android:id="@+id/back_space_iv"
+            android:id="@+id/disco_back_space_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -296,43 +270,41 @@
             app:srcCompat="@drawable/ic_baseline_backspace_24" />
 
         <Button
-            android:id="@+id/go"
+            android:id="@+id/disco_go"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="Go"
             android:layout_marginStart="310dp"
             android:layout_marginTop="291dp"
-            android:background="?android:attr/selectableItemBackground"
             android:fontFamily="sans-serif"
-            android:onClick="calc"
-            android:text="Go"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <Button
-            android:id="@+id/dot"
+            android:id="@+id/disco_dot"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_marginStart="210dp"
-            android:layout_marginTop="290dp"
             android:background="?android:attr/selectableItemBackground"
             android:fontFamily="sans-serif"
-            android:text="."
             android:textSize="28sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="290dp"
+            android:layout_marginStart="210dp"
+            android:text="." />
 
         <Button
-            android:id="@+id/zero"
+            android:id="@+id/disco_zero"
             android:layout_width="189dp"
             android:layout_height="90dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="290dp"
             android:background="?android:attr/selectableItemBackground"
             android:fontFamily="sans-serif"
-            android:text="0"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginTop="290dp"
+            android:layout_marginStart="10dp"
+            android:text="0" />
 
 
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

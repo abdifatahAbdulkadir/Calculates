@@ -33,6 +33,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.github.hajiyevelnur92:intentanimation:1.0'
     implementation 'joda-time:joda-time:2.9.4'
-    compileOnly 'com.google.android.wearable:wearable:2.8.1'
-
+    // ToDo change in the future
+    implementation 'com.github.HotBitmapGG:RingProgressBar:V1.2.3'
 }

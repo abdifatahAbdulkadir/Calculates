@@ -13,8 +13,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif"
         android:text="Date of birth"
         android:textSize="18sp"
@@ -25,13 +25,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="346dp"
+        android:layout_marginTop="68dp"
         android:fontFamily="sans-serif"
         android:text="Today"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -39,7 +40,7 @@
         android:layout_width="187dp"
         android:layout_height="47dp"
         android:layout_marginTop="12dp"
-        android:text="2021-01-07"
+        android:text="   2021-01-07"
         style="@android:style/Widget.Spinner.DropDown"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +62,7 @@
         android:layout_width="187dp"
         android:layout_height="47dp"
         android:layout_marginTop="68dp"
-        android:text="2021-01-07"
+        android:text="   2021-01-07"
         style="@android:style/Widget.Spinner.DropDown"
         android:background="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +82,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
         android:layout_height="350dp"
-        android:elevation="10dp"
+        android:elevation="15dp"
         app:cardCornerRadius="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,13 +93,6 @@
 
 
         <View
-            android:layout_width="1dp"
-            android:layout_height="155dp"
-            android:layout_marginStart="174dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/cardview_dark_background"/>
-
-        <View
             android:layout_width="330dp"
             android:layout_height="1dp"
             android:layout_marginStart="10dp"
@@ -106,102 +100,55 @@
             android:background="@color/cardview_dark_background"/>
 
         <!--upper left side of the view-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Age"
-            android:textStyle="bold"
-            android:textSize="28sp"
-            android:layout_margin="15dp"/>
 
         <TextView
             android:id="@+id/current_year_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="53dp"
             android:text="20"
             android:textColor="@color/orangeAccent"
-            android:textStyle="normal"
             android:textSize="48sp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="53dp"/>
+            android:textStyle="normal" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="230dp"
+            android:layout_marginTop="83dp"
             android:text="Years"
-            android:textStyle="bold"
             android:textSize="18sp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="83dp"/>
-
-        <TextView
-            android:id="@+id/current_month_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Months"
-            android:textStyle="normal"
-            android:textSize="14sp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="124dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/current_days_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="230dp"
+            android:layout_marginTop="124dp"
             android:text="Days"
-            android:textStyle="normal"
             android:textSize="14sp"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="124dp"/>
-
-        <!--upper right side of the view-->
+            android:textStyle="normal" />
 
         <TextView
+            android:id="@+id/current_month_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next birthday"
-            android:textStyle="normal"
-            android:textSize="16sp"
-            android:textColor="@color/orangeAccent"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="218dp"/>
-
-        <ImageView
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:src="@drawable/birthday_cake"
-            android:layout_marginStart="240dp"
-            android:layout_marginTop="48dp"/>
-
-        <TextView
-            android:id="@+id/coming_week_day_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Monday"
-            android:textStyle="normal"
-            android:textSize="16sp"
-            android:layout_marginTop="99dp"
-            android:layout_marginStart="235dp"/>
-
-        <TextView
-            android:id="@+id/coming_month_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="124dp"
             android:text="Months"
-            android:textStyle="normal"
-            android:textSize="18sp"
-            android:layout_marginStart="210dp"
-            android:layout_marginTop="124dp"/>
+            android:textSize="14sp"
+            android:textStyle="normal" />
 
         <TextView
-            android:id="@+id/coming_day_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Days"
-            android:textStyle="normal"
-            android:textSize="18sp"
-            android:layout_marginStart="275dp"
-            android:layout_marginTop="124dp"/>
+            android:layout_marginTop="15dp"
+            android:text="Age"
+            android:layout_marginStart="155dp"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <!--lower side of the view-->
 
@@ -332,15 +279,5 @@
             android:layout_marginTop="296dp"/>
 
     </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/s_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="60dp"
-        android:text="Click"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

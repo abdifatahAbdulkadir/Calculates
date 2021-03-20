@@ -2,49 +2,110 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constrainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:rowCount="4"
+            android:layout_margin="5dp"
+            android:layout_gravity="center_horizontal">
 
-            <ImageView
-                android:id="@+id/bmi"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="25dp"
-                android:background="@drawable/bmi" />
+            <androidx.cardview.widget.CardView
+                android:layout_height="170dp"
+                android:layout_width="170dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                app:cardCornerRadius="12dp">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BMI"
-                android:textSize="18sp"
-                android:layout_marginTop="90dp"
-                android:layout_marginStart="-68dp"/>
+                    <ImageView
+                        android:id="@+id/bmi"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/icons_bmi"
+                        android:layout_marginTop="60dp"
+                        android:layout_gravity="center"/>
 
-            <ImageView
-                android:id="@+id/age_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="25dp"
-                android:background="@drawable/ic_birth_cake" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif"
+                        android:text="BMI"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Age"
-                android:textSize="18sp"
-                android:layout_marginTop="90dp"
-                android:layout_marginStart="-68dp"/>
-        </LinearLayout>
-    </ScrollView>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="170dp"
+                android:layout_width="170dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                app:cardCornerRadius="12dp">
+                <ImageView
+                    android:id="@+id/age_iv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/age_cake" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="45dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Age"
+                    android:textSize="18sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="170dp"
+                android:layout_width="170dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp">
+
+                <ImageView
+                    android:id="@+id/discount_iv"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon_discount" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="43dp"
+                    android:fontFamily="sans-serif"
+                    android:text="Discount"
+                    android:textSize="18sp" />
+            </androidx.cardview.widget.CardView>
+
+
+
+
+        </GridLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
