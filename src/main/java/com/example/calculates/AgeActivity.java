@@ -13,28 +13,20 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
 import org.joda.time.Days;
 import org.joda.time.Hours;
-import org.joda.time.LocalDate;
 import org.joda.time.Minutes;
 import org.joda.time.Months;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;
 import org.joda.time.Weeks;
 import org.joda.time.Years;
-import org.joda.time.format.PeriodFormatter;
-import org.joda.time.format.PeriodFormatterBuilder;
 
 import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
-import java.util.TimeZone;
 
 public class AgeActivity extends AppCompatActivity {
     private static final String TAG = "AgeActivity";
@@ -118,10 +110,6 @@ public class AgeActivity extends AppCompatActivity {
         current_year_tv = findViewById(R.id.current_year_tv);
         current_month_tv = findViewById(R.id.current_month_tv);
         current_days_tv = findViewById(R.id.current_days_tv);
-
-        coming_week_day_tv = findViewById(R.id.coming_week_day_tv);
-        coming_day_tv = findViewById(R.id.coming_day_tv);
-        coming_month_tv = findViewById(R.id.coming_month_tv);
 
         total_year_tv = findViewById(R.id.total_year_tv);
         total_days_tv = findViewById(R.id.total_days_tv);

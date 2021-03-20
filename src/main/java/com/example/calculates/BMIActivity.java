@@ -1,25 +1,20 @@
 package com.example.calculates;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.View;;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Objects;
-
-import static maes.tech.intentanim.CustomIntent.customType;
 
 public class BMIActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -229,7 +224,18 @@ public class BMIActivity extends AppCompatActivity {
                     }
                 });
 
-
+                back_space.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!weight_tv.getText().toString().equals("")) {
+                            String weightValue = weight_tv.getText().toString();
+                            if (weightValue.length() > 0) {
+                                weightValue = weightValue.substring(0, weightValue.length() - 1);
+                                weight_tv.setText(weightValue);
+                            }
+                        }
+                    }
+                });
             }
         });
 
@@ -320,7 +326,18 @@ public class BMIActivity extends AppCompatActivity {
                     }
                 });
 
-
+                back_space.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!height_tv.getText().toString().equals("")) {
+                            String heightValue = height_tv.getText().toString();
+                            if (heightValue.length() > 0) {
+                                heightValue = heightValue.substring(0, heightValue.length() - 1);
+                                height_tv.setText(heightValue);
+                            }
+                        }
+                    }
+                });
             }
         });
     }
@@ -340,7 +357,6 @@ public class BMIActivity extends AppCompatActivity {
             Log.d(TAG, "calc: " + poundResult);
         }
     }
-
 
     //return kilograms and Centimeter result
     public float BMICalculation(float weight, float height) {
@@ -362,7 +378,6 @@ public class BMIActivity extends AppCompatActivity {
         returnResultOnTextView(result);
         return result;
     }
-
 
     public float returnResultOnTextView(float result) {
         if (result < 16) {
@@ -413,6 +428,5 @@ public class BMIActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        customType(BMIActivity.this, "up-to-bottom");
     }
 }
