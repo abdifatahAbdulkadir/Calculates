@@ -275,7 +275,7 @@ public class DiscountActivity extends AppCompatActivity {
             float finalPriceResult = getFinalPrice(Float.parseFloat(fPrice), Float.parseFloat(percentage));
             float finalDiscountSavedResult = getDiscountSaved(Float.parseFloat(fPrice), Float.parseFloat(percentage));
             final_price_tv.setText(String.valueOf(finalPriceResult));
-            discount_saved.setText(String.valueOf(finalDiscountSavedResult));
+            discount_saved.setText("Saved " + String.valueOf(finalDiscountSavedResult) + " kr");
         } else {
             Toast.makeText(this, "Field is Empty", Toast.LENGTH_SHORT).show();
         }
