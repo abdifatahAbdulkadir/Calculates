@@ -5,12 +5,5 @@
 
 * You can choose Kilograms <=> Centimeter or Pound <=> Feet to get your BMI (Body Mass Index)
 * You can calculate your age and get the | year | month | Week | day | hour | minute
-* If you ever receive a dicount from a shop or other places, you can easily calculate with this app
+* Discount calculation
 
-
-* Future features: 
-  - Mass calculator
-  - Speed
-  - Numeral System
-  - Area
-  - Volume
